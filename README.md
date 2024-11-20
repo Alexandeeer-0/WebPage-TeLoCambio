@@ -17,7 +17,7 @@ Los datos en MySQL y Neo4j están sincronizados para asegurar que la informació
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/te-lo-cambio.git
+   git clone https://github.com/Alexandeeer-0/te-lo-cambio.git
 
 2. Instala las dependencias:
 
