@@ -1,145 +1,152 @@
-# TeLoCambio
+<div align="center">
+  <h1>🔄 TeLoCambio</h1>
+  <p><i>Una plataforma moderna de intercambio de objetos</i></p>
+  
+  ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+  ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+  ![Neo4j](https://img.shields.io/badge/Neo4j-008CC1?style=for-the-badge&logo=neo4j&logoColor=white)
+  ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+</div>
 
-**TeLoCambio** es una plataforma de intercambio de objetos basada en web que permite a los usuarios registrar, ofrecer y solicitar intercambios de objetos con otros usuarios. El sistema también incluye un sistema de valoraciones para los intercambios realizados y notificaciones sobre el estado de las solicitudes.
+## 📋 Descripción
 
-Este proyecto utiliza una arquitectura de base de datos relacional (MySQL) y no relacional (Neo4j), lo que permite gestionar tanto datos estructurados como relaciones complejas entre los usuarios y los objetos. El sistema también está respaldado por una API RESTful para la interacción con la base de datos y la gestión de usuarios.
+**TeLoCambio** es una innovadora plataforma web que revoluciona la forma en que intercambiamos objetos. Utilizando una arquitectura híbrida que combina MySQL y Neo4j, ofrecemos una experiencia única para:
 
-## Tecnologías Utilizadas
+- 🤝 Intercambiar objetos de forma segura
+- ⭐ Valorar las experiencias de intercambio
+- 🔔 Recibir notificaciones en tiempo real
+- 👥 Construir una comunidad de intercambio confiable
 
-- **Backend**: Flask (Python)
-- **Base de Datos Relacional**: MySQL
-- **Base de Datos No Relacional**: Neo4j
-- **Autenticación**: Flask-Login (para la gestión de sesiones de usuario)
-- **Frontend**: HTML, CSS, Bootstrap
-- **Pruebas**: unittest, pytest
+## 🚀 Características Principales
 
-## Requisitos
+- **Sistema de Valoraciones**: Construye tu reputación a través de intercambios exitosos
+- **Notificaciones**: Mantente informado sobre tus solicitudes y ofertas
+- **Gestión de Objetos**: Administra tu inventario de forma intuitiva
+- **API RESTful**: Integración sencilla con otros servicios
 
-Para ejecutar este proyecto, necesitas tener instalados los siguientes programas:
+## 🛠️ Tecnologías
 
+### Backend
+- Python (Flask)
+- MySQL (Base de datos relacional)
+- Neo4j (Base de datos de grafos)
+- Flask-Login (Autenticación)
+
+### Frontend
+- HTML5 & CSS3
+- Bootstrap 5
+- JavaScript
+
+### Testing
+- unittest
+- pytest
+
+## ⚙️ Instalación
+
+### Prerrequisitos
 - Python 3.x
 - MySQL
 - Neo4j
-- pip (para instalar las dependencias de Python)
+- pip
 
-## Instalación
+### Pasos de Instalación
 
-### Paso 1: Clonar el repositorio
-
+1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/EdwinJaraOFC/TeLoCambio.git
+git clone https://github.com/Alexandeeer-0/WebPage-TeLoCambio.git
 cd TeLoCambio
-Paso 2: Crear un entorno virtual
-Es recomendable crear un entorno virtual para gestionar las dependencias del proyecto.
+```
 
-bash
-Copiar código
+2. **Crear y activar entorno virtual**
+```bash
 python -m venv venv
-source venv/bin/activate  # Para Linux/MacOS
-venv\Scripts\activate  # Para Windows
-Paso 3: Instalar las dependencias
-Instala las dependencias necesarias usando pip:
 
-bash
-Copiar código
+# Windows
+venv\Scripts\activate
+
+# Linux/MacOS
+source venv/bin/activate
+```
+
+3. **Instalar dependencias**
+```bash
 pip install -r requirements.txt
-Paso 4: Configurar el archivo .env
-Crea un archivo .env en la raíz del proyecto para almacenar las configuraciones necesarias para conectar la base de datos y otros servicios. Aquí hay un ejemplo de cómo debería lucir:
+```
 
-makefile
-Copiar código
-# Configuración de MySQL
+4. **Configurar variables de entorno**
+Crea un archivo `.env` en la raíz:
+```env
+# MySQL
 MYSQL_HOST=localhost
 MYSQL_USER=root
 MYSQL_PASSWORD=tu_contraseña
 MYSQL_DB=te_locambio
 MYSQL_PORT=3306
 
-# Configuración de Neo4j
+# Neo4j
 NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=tu_contraseña
 
-# Configuración de Flask
+# Flask
 FLASK_APP=run.py
 FLASK_ENV=development
-SECRET_KEY=una_clave_secreta
-Paso 5: Crear las bases de datos
-Antes de ejecutar la aplicación, asegúrate de tener las bases de datos de MySQL y Neo4j configuradas. Ejecuta los scripts de creación de tablas para MySQL y configura Neo4j para poder conectar los nodos.
+SECRET_KEY=tu_clave_secreta
+```
 
-Paso 6: Ejecutar la aplicación
-Una vez configurado todo, puedes iniciar la aplicación de Flask:
-
-bash
-Copiar código
+5. **Ejecutar la aplicación**
+```bash
 python run.py
-La aplicación estará disponible en http://127.0.0.1:5000.
+```
 
-Uso
-Funcionalidades principales
-Registro de Usuario: Los usuarios pueden registrarse proporcionando un nombre de usuario, contraseña y detalles adicionales (DNI, nombre, fecha de nacimiento, etc.).
-Intercambio de Objetos: Los usuarios pueden ofrecer objetos y solicitar intercambios con otros usuarios.
-Valoración de Intercambios: Después de completar un intercambio, los usuarios pueden calificarlo.
-Notificaciones: Los usuarios reciben notificaciones cuando se realiza una solicitud de intercambio o cuando se completa un intercambio.
-Gestión de Objetos: Los usuarios pueden agregar, editar y eliminar objetos de su inventario.
-Rutas de la API
-Usuarios
-POST /api/usuarios: Crear un nuevo usuario.
-POST /api/login: Iniciar sesión con un usuario registrado.
-GET /api/usuarios: Obtener una lista de todos los usuarios.
-DELETE /api/usuarios/{idUsuario}: Eliminar un usuario y sus datos relacionados.
-Objetos
-POST /api/objetos: Registrar un objeto ofrecido por un usuario.
-PATCH /api/objetos/{idObjeto}/estado: Actualizar el estado de un objeto (Disponible, En Proceso, Intercambiado).
-Intercambios
-POST /api/intercambios: Registrar un intercambio entre dos usuarios.
-PATCH /api/intercambios/{idIntercambio}/confirmar: Confirmar un intercambio.
-Valoraciones
-POST /api/valoraciones: Registrar una valoración sobre un intercambio.
-Notificaciones
-POST /api/notificaciones: Registrar una notificación de intercambio para un usuario.
-Estructura del Proyecto
-arduino
-Copiar código
+## 🗄️ Estructura del Proyecto
+
+```
 TeLoCambio/
 ├── app/
-│   ├── routes/
-│   │   ├── auth_routes.py
-│   │   ├── object_routes.py
-│   │   ├── exchange_routes.py
-│   │   └── user_routes.py
-│   ├── models/
-│   │   ├── user.py
-│   │   ├── object.py
-│   │   ├── exchange.py
-│   │   └── notification.py
-│   ├── database/
-│   │   ├── init_relational_db.py
-│   │   ├── init_neo4j_db.py
-│   ├── templates/
-│   ├── static/
+│   ├── routes/          # Rutas de la API
+│   ├── models/          # Modelos de datos
+│   ├── database/        # Configuración de BD
+│   ├── templates/       # Plantillas HTML
+│   ├── static/         # Archivos estáticos
 │   └── __init__.py
 ├── config/
-│   ├── config.py
 ├── tests/
-│   ├── test_api.py
 ├── run.py
 └── requirements.txt
-Pruebas Automáticas
-Este proyecto incluye pruebas automáticas utilizando unittest y pytest. Las pruebas están diseñadas para validar las rutas de la API y asegurar que los datos se gestionen correctamente en la base de datos.
+```
 
-Para ejecutar las pruebas:
+## 🔗 API Endpoints
 
-bash
-Copiar código
+### Usuarios
+- `POST /api/usuarios` - Crear usuario
+- `POST /api/login` - Iniciar sesión
+- `GET /api/usuarios` - Listar usuarios
+- `DELETE /api/usuarios/{id}` - Eliminar usuario
+
+### Objetos e Intercambios
+- `POST /api/objetos` - Registrar objeto
+- `PATCH /api/objetos/{id}/estado` - Actualizar estado
+- `POST /api/intercambios` - Crear intercambio
+- `PATCH /api/intercambios/{id}/confirmar` - Confirmar intercambio
+
+## 🧪 Testing
+
+Ejecutar pruebas automatizadas:
+```bash
 pytest tests/test_api.py
-Contribuciones
-Las contribuciones son bienvenidas. Si tienes alguna sugerencia, mejora o corrección, por favor abre un issue o envía un pull request.
+```
 
-Licencia
-Este proyecto está bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
+## 👥 Contribución
 
-markdown
-Copiar código
+1. Fork el proyecto
+2. Crea una rama (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add: AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-Este `README.md` incluye toda la información relevante para tu proyecto **TeLoCambio**, organizada de 
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
